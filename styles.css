@@ -105,6 +105,8 @@ body {
     height: 58px;
     border-radius: 4px;
     border: none;
-    background-color: #818384;
+    background-color: #2878db;
+    color: whitesmoke;
+    font-size: large;
     margin: 4px;
 }
