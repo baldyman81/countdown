@@ -1,10 +1,12 @@
 require('dotenv').config();
-const PORT = 8000;
 const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
 const { getSystemErrorName } = require("util");
-
+let PORT = process.env.PORT;
+if (PORT == null || PORT == "") {
+    PORT = 8000;
+}
 const app = express();
 
 app.use(cors());
