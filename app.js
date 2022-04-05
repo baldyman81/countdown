@@ -169,7 +169,7 @@ function clearTiles() {
 async function checkWord() {
     let stringGuess = guessTiles.toString().replaceAll(',','')
     let stringTiles = Tiles.toString().replaceAll(',','')
-    let URLCheck = 'http://localhost:8000/check/?gameLetters=' + stringTiles
+    let URLCheck = 'https://jscount.herokuapp.com/check/?gameLetters=' + stringTiles
     const request = new Request(URLCheck);
     const response = await fetch(request);
     const anagrams = await response.json();
