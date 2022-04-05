@@ -7,8 +7,9 @@
 * [x] - move letters between rows
 * [x] - check if submitted string is a word
 * [ ] - report how long the word is
-* [ ] - return a word that is longer
+* [x] - return a word that is longer
 * [ ] - return cheeky messages depending on how the player does
+
 
 ## Constraints
 

@@ -1,3 +1,6 @@
+const messageDisplay = document.querySelector('.message');
+const scoreDisplay = document.querySelector('.score');
+const dictCorner = document.querySelector('.dict-corner');
 const tileDisplay = document.querySelector('.tile-container');
 const guessDisplay = document.querySelector('.guess-container');
 const keyboard = document.querySelector('.key-container');
@@ -43,10 +46,29 @@ const dictionary = [
     'ZEBRA',
     'WHALES'
 ]
+
+const badMessages = [
+    'maybe this is a bit too hard for you',
+    'there is no shame in quitting',
+    'ooof... that bad huh?',
+    'you were so close... ',
+    'maybe you might get better with practice'
+]
+
+const goodMessages = [
+    '10 points to HufflePuff!',
+    'Wow check out the word nerd!',
+    'Nice work!!',
+    'That was hard but you did well!',
+    'Wow your parents must be proud of you!'
+]
 let currentTile = 0;
 let currentPlayerTile = 0;
 let gameStarted = false;
 let gameTimer = 30;
+let message = "";
+let score = 0;
+let bestWeCouldFind = "";
 
 // Section handles behaviour for original game tiles up top
 
@@ -102,7 +124,12 @@ function countdownTimer() {
     let remaining = gameTimer--
     if (remaining < 1) {
         document.getElementById('timer').innerHTML = "Time's up!"
-    } else document.getElementById('timer').innerHTML = remaining
+    } else {
+        document.getElementById('timer').innerHTML = remaining
+        scoreDisplay.textContent = "Score: " + score;
+        messageDisplay.textContent = message;
+        dictCorner.textContent = bestWeCouldFind;
+}
 }
 
 function removeLetter(e) {
@@ -139,12 +166,22 @@ function clearTiles() {
     }
 }
 // checks if the word is listed in the dictionary
-function checkWord() {
+async function checkWord() {
     let stringGuess = guessTiles.toString().replaceAll(',','')
-    console.log(stringGuess)
-    if ( dictionary.includes(stringGuess) ) {
-        console.log("Good Job")
-    } else console.log("Not a word")
+    let stringTiles = Tiles.toString().replaceAll(',','')
+    let URLCheck = 'http://localhost:8000/check/?gameLetters=' + stringTiles
+    const request = new Request(URLCheck);
+    const response = await fetch(request);
+    const anagrams = await response.json();
+    bestWeCouldFind = "Best I could do was " + anagrams[0].word;
+    message = badMessages[Math.floor(Math.random() * badMessages.length)]
+    anagrams.forEach(anagram => {
+        console.log(anagram.word)
+        if (anagram.word == stringGuess) {
+            message = goodMessages[Math.floor(Math.random() * goodMessages.length)]
+            score = score + 10;
+        } 
+    });
 }
 // Setup game tiles and buttons
 

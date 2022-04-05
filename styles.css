@@ -28,7 +28,26 @@ body {
 }
 
 .message-container {
+    font-size:x-large;
+    color: aliceblue;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 700px;
+}
 
+.score {
+    
+}
+
+.message {
+
+}
+
+.dict-corner {
+    text-align: center;
+    margin-top: 10px;
 }
 
 .tile-container {
