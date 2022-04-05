@@ -41,11 +41,6 @@ const vowels = [
     'O',
     'U'
 ]
-const dictionary = [
-    'AESTHETIC',
-    'ZEBRA',
-    'WHALES'
-]
 
 const badMessages = [
     'maybe this is a bit too hard for you',
