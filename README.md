@@ -6,12 +6,12 @@
 * [x] - countdown timer
 * [x] - move letters between rows
 * [x] - check if submitted string is a word
-* [ ] - report how long the word is
+* [x] - report how long the word is
 * [x] - return a word that is longer
-* [ ] - return cheeky messages depending on how the player does
+* [x] - return cheeky messages depending on how the player does
 
 
 ## Constraints
 
-* [ ] - can only use vanilla JS
-* [ ] - have to complete it by sunday
+* [x] - can only use vanilla JS (used minimal so gonna tick this one)
+* [ ] - have to complete it by sunday (weekend commitments means I didn't get to this. Completed on Tuesday.... :(   )

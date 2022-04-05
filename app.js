@@ -179,7 +179,7 @@ async function checkWord() {
         console.log(anagram.word)
         if (anagram.word == stringGuess) {
             message = goodMessages[Math.floor(Math.random() * goodMessages.length)]
-            score = score + 10;
+            score = score + stringGuess.length;
         } 
     });
 }
